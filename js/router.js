@@ -6,7 +6,6 @@ export default class Router {
   }
 
   init() {
-    // todo: route to current path
   }
 
   register(path, component) {
@@ -43,7 +42,6 @@ export default class Router {
       if (typeof this._callback !== 'function') {
         return;
       }
-      // window.history.back();
       this._callback(document.location.pathname);
     };
   }

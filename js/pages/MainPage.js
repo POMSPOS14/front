@@ -1,4 +1,4 @@
-// TODO: remove code duplication
+
 export default class MainPage {
     lastId = 0;
     firstId = 0;
@@ -62,7 +62,6 @@ export default class MainPage {
         <div class="row" data-id="button-next-posts"> 
         </div>
       </div>
-      <!-- TODO: https://getbootstrap.com/docs/4.4/components/modal/ -->
       <div class="modal fade" data-id="error-modal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -91,7 +90,7 @@ export default class MainPage {
         });
 
 
-        this._errorModal = $('[data-id=error-modal]'); // jquery
+        this._errorModal = $('[data-id=error-modal]');
         this._errorMessageEl = this._rootEl.querySelector('[data-id=error-message]');
         this._newPostsEl = this._rootEl.querySelector('[data-id=new-posts]');
         this._buttonNextPosts = this._rootEl.querySelector('[data-id=button-next-posts]');
@@ -104,10 +103,7 @@ export default class MainPage {
         this._mediaInputEl = this._postCreateFormEl.querySelector('[data-id=media-input]');
 
         this._mediaInputEl.addEventListener('change', evt => {
-            // evt.currentTarget -> тот, чей обработчик события сейчас выполняется
-            // File -> Blob
             const [file] = Array.from(evt.currentTarget.files);
-            // FormData -> сам выставит нужные заголовки и закодирует тело запроса
             const formData = new FormData();
             formData.append('file', file);
             this._context.post('/files/multipart', formData, {},
@@ -140,8 +136,6 @@ export default class MainPage {
         });
         this.loadFirst();
         this.loadButton();
-        // this.loadQuantityNewPosts();
-        // this.createQuantityNewPosts();
         this.pollNewPosts();
     }
 

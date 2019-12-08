@@ -1,4 +1,4 @@
-// TODO: remove code duplication
+
 export default class MessagesPage {
   constructor(context) {
     this._context = context;
@@ -50,7 +50,6 @@ export default class MessagesPage {
           </div>
         </div>
       </div>
-      <!-- TODO: https://getbootstrap.com/docs/4.4/components/modal/ -->
       <div class="modal fade" data-id="error-modal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -95,7 +94,7 @@ export default class MessagesPage {
       }
     });
 
-    this._errorModal = $('[data-id=error-modal]'); // jquery
+    this._errorModal = $('[data-id=error-modal]');
     this._errorMessageEl = this._rootEl.querySelector('[data-id=error-message]');
 
     this._messagesContainerEl = this._rootEl.querySelector('[data-id=messages-container]');
